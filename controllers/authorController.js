@@ -37,7 +37,7 @@ exports.author_detail = function (req, res, next) {
       } // Error in API usage.
       if (results.author == null) {
         // No results.
-        var err = new Error("Author not found");
+        const err = new Error("Author not found");
         err.status = 404;
         return next(err);
       }
@@ -99,7 +99,7 @@ exports.author_create_post = [
       // Data from form is valid.
 
       // Create an Author object with escaped and trimmed data.
-      var author = new Author({
+      const author = new Author({
         first_name: req.body.first_name,
         family_name: req.body.family_name,
         date_of_birth: req.body.date_of_birth,

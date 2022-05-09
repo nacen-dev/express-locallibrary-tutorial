@@ -69,7 +69,7 @@ exports.book_detail = function (req, res, next) {
       }
       if (results.book == null) {
         // No results.
-        var err = new Error("Book not found");
+        const err = new Error("Book not found");
         err.status = 404;
         return next(err);
       }
@@ -142,7 +142,7 @@ exports.book_create_post = [
     const errors = validationResult(req);
 
     // Create a Book object with escaped and trimmed data.
-    var book = new Book({
+    const book = new Book({
       title: req.body.title,
       author: req.body.author,
       summary: req.body.summary,
@@ -288,19 +288,19 @@ exports.book_update_get = function (req, res, next) {
       }
       if (results.book == null) {
         // No results.
-        var err = new Error("Book not found");
+        const err = new Error("Book not found");
         err.status = 404;
         return next(err);
       }
       // Success.
       // Mark our selected genres as checked.
       for (
-        var all_g_iter = 0;
+        let all_g_iter = 0;
         all_g_iter < results.genres.length;
         all_g_iter++
       ) {
         for (
-          var book_g_iter = 0;
+          let book_g_iter = 0;
           book_g_iter < results.book.genre.length;
           book_g_iter++
         ) {
@@ -355,7 +355,7 @@ exports.book_update_post = [
     const errors = validationResult(req);
 
     // Create a Book object with escaped/trimmed data and old id.
-    var book = new Book({
+    const book = new Book({
       title: req.body.title,
       author: req.body.author,
       summary: req.body.summary,

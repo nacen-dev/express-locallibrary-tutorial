@@ -29,7 +29,7 @@ exports.bookinstance_detail = function (req, res, next) {
       }
       if (bookinstance == null) {
         // No results.
-        var err = new Error("Book copy not found");
+        const err = new Error("Book copy not found");
         err.status = 404;
         return next(err);
       }
@@ -75,7 +75,7 @@ exports.bookinstance_create_post = [
     const errors = validationResult(req);
 
     // Create a BookInstance object with escaped and trimmed data.
-    var bookinstance = new BookInstance({
+    const bookinstance = new BookInstance({
       book: req.body.book,
       imprint: req.body.imprint,
       status: req.body.status,
